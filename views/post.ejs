@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./__head.ejs') %> 
+<body>
+    <% var blog = blog %> 
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between p-3 shadow">
+            <h2 class="fs-4 fw-bold">A<span class="text-danger">sync</span></h2>
+            <h2 class="fs-4 fw-bold"><a href="#" class="text-decoration-none text-dark">All Blog</a></h2>
+        </div>
+
+        <h1 class="fs-4 fw-bold mt-4">All blog Posts</h1>        
+        <% if(blog){ %> 
+            <div class="card my-4" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= blog.title %> </h5>
+                    <h6 class="card-subtitle text-muted mb-2"><%= blog.time.toLocaleDateString() %> </h6>
+                    <p class="card-text"><%= blog.description%> </p>
+                    <p class="card-text"><%- blog.sanitizedHTML %> </p>
+                    <a href="/blog/posts" class="btn btn-primary">All blog</a>
+                    <form action="/blog/posts/<%= blog._id %>?_method=DELETE" method="POST" class="d-inline ms-2">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } else { %> 
+            <h2>Loading...</h2>
+        <% } %> 
+    </div>
+</body>
+</html>

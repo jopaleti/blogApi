@@ -1,0 +1,8 @@
+* {
+    padding: o;
+    margin: 0;
+    box-sizing: border-box;
+}
+.form__creation {
+    max-width: 50%;
+}

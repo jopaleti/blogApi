@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./__head.ejs') %> 
+<body>
+    <!-- Edit blog -->
+    <% var blog = blog %> 
+    <div class="container">
+        <!-- Navigation bar -->
+        <div class="d-flex align-items-center justify-content-between p-3 shadow">
+            <h2 class="fs-4 fw-bold">A<span class="text-danger">sync</span></h2>
+            <h2 class="fs-4 fw-bold"><a href="#" class="text-decoration-none text-dark">All Blog</a></h2>
+        </div>
+        <!-- Blog Form Creation -->
+        <div class="mt-4 container">
+            <h2 class="fs-4 fw-bold">Edit Blog</h2>
+            <div class="form__creation mt-2">
+                <form action="/blog/editBlog/<%= blog.slug %> " method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-control-label">Name:</label>
+                        <input type="text" class="form-control mt-2" name="name" value="<%= blog.name %> ">
+                    </div>
+                    <div class="form-group">
+                        <label for="Title" class="form-control-label">Title:</label>
+                        <input type="text" class="form-control mt-2" name="title" value="<%= blog.title %> ">
+                    </div>
+                    <div class="form-group">
+                        <label for="Description" class="form-control-label">Description:</label>
+                        <input type="text" class="form-control mt-2" name="description" value="<%= blog.description %> ">
+                    </div>
+                    <div class="form-group">
+                        <label for="Markdown" class="form-control-label">Markdown:</label>
+                        <textarea type="text" name="markdown" class="form-control mt-2"><%= blog.markdown %></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <a href="/blog/posts" class="btn btn-info mt-2 ms-2 text-white">All blog</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
